@@ -63,7 +63,7 @@ export default function Contact() {
     },
     {
       label: 'Telegram',
-      value: 't.me/eyu_developer',
+      value: 't.me/Eyu_sk',
       href: 'https://t.me/Eyu_sk',
       icon: Send,
       color: 'bg-cyan-500/10 text-cyan-500',
