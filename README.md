@@ -1,10 +1,10 @@
-# 💼 Personal Portfolio
+# Personal Portfolio
 
 A modern and responsive personal portfolio website built with Next.js and Tailwind CSS.
 
 ---
 
-# 📖 Overview
+# Overview
 
 This portfolio showcases my skills, projects, and contact information.
 
@@ -12,7 +12,7 @@ The goal is to present my work professionally and improve my frontend developmen
 
 ---
 
-# 📑 Table of Contents
+# Table of Contents
 
 - Overview
 - Features
@@ -25,7 +25,7 @@ The goal is to present my work professionally and improve my frontend developmen
 
 ---
 
-# ✨ Features
+# Features
 
 - Responsive Design
 - Dark / Light Mode
@@ -38,7 +38,7 @@ The goal is to present my work professionally and improve my frontend developmen
 
 ---
 
-# 🛠 Technologies
+# Technologies
 
 - Next.js
 - React
@@ -49,7 +49,7 @@ The goal is to present my work professionally and improve my frontend developmen
 
 ---
 
-# 📂 Project Structure
+# Project Structure
 
 ```
 app/
@@ -61,7 +61,7 @@ README.md
 
 ---
 
-# 🚀 Installation
+# Installation
 
 ```bash
 git clone https://github.com/EyuDiv/personal-portfolio.git
@@ -87,7 +87,7 @@ npm run dev
 
 ---
 
-# 🔮 Future Improvements
+# Future Improvements
 
 - Blog Page
 - Admin Dashboard
@@ -97,7 +97,7 @@ npm run dev
 
 ---
 
-# 👨‍💻 Author
+Author
 
 **Eyu Yimer**
 
