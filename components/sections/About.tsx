@@ -124,7 +124,7 @@ export default function About() {
                 Hi, I'm a passionate creator building clean web experiences.
               </h3>
               <p className="text-base text-muted-foreground leading-relaxed">
-                As a Software Engineering student, I combine my academic foundation in logic and design patterns with self-directed software development to build interactive websites. I love learning how frameworks function under the hood and adopting patterns that make applications robust, responsive, and delightful.
+                As a Woldia University Software Engineering student, I combine my academic foundation in logic and design patterns with self-directed software development to build interactive websites. I love learning how frameworks function under the hood and adopting patterns that make applications robust, responsive, and delightful.
               </p>
               <p className="text-base text-muted-foreground leading-relaxed">
                 My primary focus revolves around the React/Next.js ecosystem for creating beautiful client interfaces, and Laravel/PHP for constructing secure, well-structured API services. I am dedicated to continuous learning and frequently build project-based mock applications to master new techniques.

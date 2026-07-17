@@ -42,14 +42,14 @@ export default function Contact() {
   const contactInfo = [
     {
       label: 'Email',
-      value: 'eyu@example.com',
-      href: 'mailto:eyu@example.com',
+      value: 'yimereyuel3@gmail.com',
+      href: 'mailto:yimereyuel3@gmail.com',
       icon: Mail,
       color: 'bg-blue-500/10 text-blue-500',
     },
     {
       label: 'GitHub',
-      value: 'github.com/eyu',
+      value: 'github.com/EyuDiv',
       href: 'https://github.com',
       icon: GithubIcon,
       color: 'bg-foreground/10 text-foreground',
@@ -64,7 +64,7 @@ export default function Contact() {
     {
       label: 'Telegram',
       value: 't.me/eyu_developer',
-      href: 'https://t.me',
+      href: 'https://t.me/Eyu_sk',
       icon: Send,
       color: 'bg-cyan-500/10 text-cyan-500',
     },
