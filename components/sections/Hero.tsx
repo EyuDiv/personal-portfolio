@@ -16,13 +16,13 @@ export default function Hero() {
 
   const handleDownloadCV = () => {
     const cvText = `================================================
-EYU - SOFTWARE ENGINEER & FULL STACK DEVELOPER
+EYOUAL YIMER - SOFTWARE ENGINEER & FULL STACK DEVELOPER
 ================================================
 
 Contact Info:
-- Email: eyu@example.com
+- Email: yimereyuel3@gmail.com
 - Location: Addis Ababa, Ethiopia
-- Github: https://github.com
+- Github: https://github.com/EyuDiv
 
 Profile Summary:
 Software Engineering Student and Aspiring Full Stack Web Developer. 
@@ -37,7 +37,7 @@ Technical Skills:
 - Tools: Git, GitHub, VS Code, Postman
 
 Education:
-- Bachelor of Science in Software Engineering (In Progress)
+- Bachelor of Science in Software Engineering in Woldia University (In Progress)
 
 Projects Summary:
 1. Personal Portfolio (Next.js, Tailwind CSS, Framer Motion)
@@ -151,8 +151,8 @@ Projects Summary:
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight"
           >
-            Hi 👋 <br />
-            I'm <span className="bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">Eyu</span>
+            Hi  <br />
+            I'm <span className="bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">Eyoual yomer</span>
           </motion.h1>
 
           <motion.h2
