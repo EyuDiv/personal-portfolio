@@ -160,7 +160,7 @@ export default function Contact() {
           <div className="lg:col-span-5 flex flex-col gap-6">
             <div className="space-y-4">
               <h3 className="text-2xl font-bold text-foreground">
-                Let's talk about your project
+                Let's talk about my project
               </h3>
               <p className="text-base text-muted-foreground leading-relaxed">
                 Feel free to reach out if you're looking for a developer, have a question, or simply want to connect. I will do my best to get back to you as soon as possible!

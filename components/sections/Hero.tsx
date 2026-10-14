@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 import { Send, Mail, ArrowRight, Download } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from '../ui/BrandIcons';
 import Button from '../ui/Button';
@@ -73,7 +73,7 @@ Projects Summary:
   };
 
   // Floating shape variants
-  const shapeVariants = {
+  const shapeVariants: Variants = {
     animate1: {
       y: [0, -20, 0],
       x: [0, 10, 0],
