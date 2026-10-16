@@ -1,0 +1,53 @@
+﻿================================================
+EYOUAL YIMER - SOFTWARE ENGINEER & FULL STACK DEVELOPER
+================================================
+
+Contact Info:
+- Full Name: Eyoual Yimer (Eyu)
+- Email: yimereyuel3@gmail.com
+- Location: Addis Ababa, Ethiopia
+- GitHub: https://github.com/EyuDiv
+- Telegram: https://t.me/Eyu_sk
+- LinkedIn: https://linkedin.com/in/eyu
+- Live Portfolio: https://personal-portfolio-sage-alpha-43.vercel.app
+
+Profile Summary:
+Software Engineering Student and Aspiring Full Stack Web Developer.
+Passionate about constructing responsive, performant, and user-friendly
+web applications. Enthusiastic learner dedicated to mastering modern web
+technologies, writing clean and maintainable code, and solving real-world problems.
+
+Technical Skills:
+- Frontend: HTML5, CSS3, JavaScript (ES6+), TypeScript, React, Next.js, Tailwind CSS
+- Backend: Laravel, PHP, Node.js (Actively Learning)
+- Databases: MySQL
+- Development Tools: Git, GitHub, VS Code, Postman
+
+Education:
+- Bachelor of Science in Software Engineering
+  Woldia University (In Progress)
+
+Featured Projects:
+1. Personal Portfolio (Next.js 15, Tailwind CSS, Framer Motion, TypeScript)
+   - Fully responsive developer portfolio web application with custom dark/light themes.
+   - Live URL: https://personal-portfolio-sage-alpha-43.vercel.app
+   - Repository: https://github.com/EyuDiv/personal-portfolio
+
+2. Todo App (Next.js, TypeScript, Tailwind CSS)
+   - Lightweight task manager with custom themes and persistent client storage.
+
+3. Weather App (React, OpenWeather API, Tailwind CSS)
+   - Live meteorological dashboard with automatic geolocation and multi-day forecast.
+
+4. Laravel REST API (Laravel, PHP, MySQL, JWT Auth)
+   - Secure and scalable RESTful API with token authentication and unit test coverage.
+
+5. Blog Platform (Next.js, MDX, Tailwind CSS)
+   - Blazing-fast static publishing engine with search and reading time estimation.
+
+6. E-Commerce UI (Next.js, Context API, Tailwind CSS)
+   - High-performance shopping interface featuring cart state management and checkout validation.
+
+Career Objective:
+To leverage strong engineering principles and continuous learning to develop
+high-impact full stack applications as part of forward-thinking engineering teams.

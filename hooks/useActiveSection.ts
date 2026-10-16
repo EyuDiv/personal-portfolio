@@ -25,7 +25,6 @@ export function useActiveSection(sectionIds: string[]) {
       const elements = sectionIds.map((id) => document.getElementById(id));
       
       let currentSection = 'home';
-      let minDistance = Infinity;
 
       elements.forEach((el) => {
         if (!el) return;

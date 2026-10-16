@@ -46,20 +46,23 @@ export default function Contact() {
       href: 'mailto:yimereyuel3@gmail.com',
       icon: Mail,
       color: 'bg-blue-500/10 text-blue-500',
+      ariaLabel: 'Send email to yimereyuel3@gmail.com',
     },
     {
       label: 'GitHub',
       value: 'github.com/EyuDiv',
-      href: 'https://github.com',
+      href: 'https://github.com/EyuDiv',
       icon: GithubIcon,
       color: 'bg-foreground/10 text-foreground',
+      ariaLabel: 'View GitHub profile EyuDiv',
     },
     {
       label: 'LinkedIn',
       value: 'linkedin.com/in/eyu',
-      href: 'https://linkedin.com',
+      href: 'https://linkedin.com/in/eyu',
       icon: LinkedinIcon,
       color: 'bg-indigo-500/10 text-indigo-500',
+      ariaLabel: 'Connect with Eyu on LinkedIn',
     },
     {
       label: 'Telegram',
@@ -67,6 +70,7 @@ export default function Contact() {
       href: 'https://t.me/Eyu_sk',
       icon: Send,
       color: 'bg-cyan-500/10 text-cyan-500',
+      ariaLabel: 'Message Eyu on Telegram',
     },
     {
       label: 'Location',
@@ -74,6 +78,7 @@ export default function Contact() {
       href: null,
       icon: MapPin,
       color: 'bg-red-500/10 text-red-500',
+      ariaLabel: 'Location: Addis Ababa, Ethiopia',
     },
   ];
 
@@ -125,18 +130,24 @@ export default function Contact() {
 
     setStatus('loading');
 
-    // Simulate API submission
+    // Prepare direct mailto URL so user's client dispatches directly to verified email
+    const mailtoSubject = encodeURIComponent(`[Portfolio] ${formData.subject}`);
+    const mailtoBody = encodeURIComponent(
+      `Hello Eyoual,\n\nMy name is ${formData.name} (${formData.email}).\n\n${formData.message}\n`
+    );
+    const mailtoUrl = `mailto:yimereyuel3@gmail.com?subject=${mailtoSubject}&body=${mailtoBody}`;
+
     setTimeout(() => {
+      window.location.href = mailtoUrl;
       setStatus('success');
-      setFormData({ name: '', email: '', subject: '', message: '' });
-    }, 1500);
+    }, 600);
   };
 
   return (
-    <section id="contact" className="py-20">
+    <section id="contact" className="py-14 sm:py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Title */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -155,19 +166,19 @@ export default function Contact() {
           />
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           {/* Left Column: Contact Sidebar */}
           <div className="lg:col-span-5 flex flex-col gap-6">
             <div className="space-y-4">
               <h3 className="text-2xl font-bold text-foreground">
-                Let's talk about my project
+                Let&apos;s talk about my project
               </h3>
               <p className="text-base text-muted-foreground leading-relaxed">
-                Feel free to reach out if you're looking for a developer, have a question, or simply want to connect. I will do my best to get back to you as soon as possible!
+                Feel free to reach out if you&apos;re looking for a developer, have a question, or simply want to connect. I will do my best to get back to you as soon as possible!
               </p>
             </div>
 
-            <div className="flex flex-col gap-4 mt-4">
+            <div className="flex flex-col gap-3.5 mt-2">
               {contactInfo.map((info, index) => {
                 const Icon = info.icon;
                 const Component = info.href ? 'a' : 'div';
@@ -177,16 +188,17 @@ export default function Contact() {
                     href={info.href || undefined}
                     target={info.href?.startsWith('http') ? '_blank' : undefined}
                     rel={info.href?.startsWith('http') ? 'noopener noreferrer' : undefined}
-                    className={`flex items-center gap-4 p-4 rounded-2xl border border-border bg-card/40 backdrop-blur-xs transition-all ${
+                    aria-label={info.ariaLabel}
+                    className={`flex items-center gap-4 p-3.5 sm:p-4 rounded-2xl border border-border bg-card/40 backdrop-blur-xs transition-all min-h-[48px] ${
                       info.href ? 'hover:bg-muted hover:border-muted-foreground/30 hover:translate-x-1 cursor-pointer' : ''
                     }`}
                   >
-                    <div className={`p-3 rounded-xl ${info.color}`}>
+                    <div className={`p-3 rounded-xl shrink-0 ${info.color}`}>
                       <Icon className="w-5 h-5" />
                     </div>
-                    <div>
+                    <div className="min-w-0 flex-1">
                       <p className="text-xs text-muted-foreground font-medium uppercase tracking-wider">{info.label}</p>
-                      <p className="text-sm font-semibold text-foreground mt-0.5">{info.value}</p>
+                      <p className="text-sm font-semibold text-foreground mt-0.5 truncate">{info.value}</p>
                     </div>
                   </Component>
                 );
@@ -196,7 +208,7 @@ export default function Contact() {
 
           {/* Right Column: Contact Form */}
           <div className="lg:col-span-7">
-            <Card hoverEffect={false} className="border border-border bg-card/60 backdrop-blur-xs p-8 relative overflow-hidden">
+            <Card hoverEffect={false} className="border border-border bg-card/60 backdrop-blur-xs p-5 sm:p-8 relative overflow-hidden">
               <AnimatePresence mode="wait">
                 {status === 'success' ? (
                   <motion.div
@@ -204,21 +216,40 @@ export default function Contact() {
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.95 }}
-                    className="flex flex-col items-center text-center py-10 gap-4"
+                    className="flex flex-col items-center text-center py-8 sm:py-10 gap-4"
                   >
-                    <CheckCircle2 className="w-16 h-16 text-emerald-500 animate-bounce" />
-                    <h4 className="text-2xl font-bold text-foreground">Message Sent!</h4>
-                    <p className="text-muted-foreground max-w-sm">
-                      Thank you for reaching out. Eyu will respond to your message as soon as possible.
+                    <CheckCircle2 className="w-14 h-14 sm:w-16 sm:h-16 text-emerald-500 animate-bounce" />
+                    <h4 className="text-2xl font-bold text-foreground">Message Ready</h4>
+                    <p className="text-muted-foreground max-w-sm text-sm sm:text-base">
+                      Your email client was prompted with the prepared draft addressed to <span className="text-foreground font-semibold">yimereyuel3@gmail.com</span>.
                     </p>
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className="mt-4"
-                      onClick={() => setStatus('idle')}
-                    >
-                      Send another message
-                    </Button>
+                    <div className="flex flex-col sm:flex-row gap-3 mt-4 w-full max-w-sm">
+                      <Button
+                        variant="primary"
+                        size="md"
+                        className="flex-1 min-h-[44px]"
+                        onClick={() => {
+                          const mailtoSubject = encodeURIComponent(`[Portfolio] ${formData.subject}`);
+                          const mailtoBody = encodeURIComponent(
+                            `Hello Eyoual,\n\nMy name is ${formData.name} (${formData.email}).\n\n${formData.message}\n`
+                          );
+                          window.location.href = `mailto:yimereyuel3@gmail.com?subject=${mailtoSubject}&body=${mailtoBody}`;
+                        }}
+                      >
+                        Re-open Email App
+                      </Button>
+                      <Button
+                        variant="outline"
+                        size="md"
+                        className="flex-1 min-h-[44px]"
+                        onClick={() => {
+                          setStatus('idle');
+                          setFormData({ name: '', email: '', subject: '', message: '' });
+                        }}
+                      >
+                        Reset Form
+                      </Button>
+                    </div>
                   </motion.div>
                 ) : (
                   <motion.form
@@ -230,7 +261,7 @@ export default function Contact() {
                     noValidate
                   >
                     {/* Name */}
-                    <div className="flex flex-col gap-2">
+                    <div className="flex flex-col gap-1.5">
                       <label htmlFor="name" className="text-sm font-semibold text-foreground">
                         Your Name
                       </label>
@@ -241,21 +272,23 @@ export default function Contact() {
                         value={formData.name}
                         onChange={handleChange}
                         placeholder="John Doe"
-                        className={`h-11 px-4 rounded-xl border bg-background/50 text-foreground text-sm transition-all focus:bg-background focus:outline-hidden ${
+                        aria-invalid={!!errors.name}
+                        aria-describedby={errors.name ? 'name-error' : undefined}
+                        className={`h-11 sm:h-12 px-4 rounded-xl border bg-background/50 text-foreground text-sm transition-all focus:bg-background focus:outline-hidden ${
                           errors.name
                             ? 'border-red-500 focus:border-red-500 focus:ring-1 focus:ring-red-500'
                             : 'border-border focus:border-primary focus:ring-1 focus:ring-primary'
                         }`}
                       />
                       {errors.name && (
-                        <p className="text-xs text-red-500 flex items-center gap-1">
-                          <AlertCircle className="w-3.5 h-3.5" /> {errors.name}
+                        <p id="name-error" className="text-xs text-red-500 flex items-center gap-1">
+                          <AlertCircle className="w-3.5 h-3.5 shrink-0" /> {errors.name}
                         </p>
                       )}
                     </div>
 
                     {/* Email */}
-                    <div className="flex flex-col gap-2">
+                    <div className="flex flex-col gap-1.5">
                       <label htmlFor="email" className="text-sm font-semibold text-foreground">
                         Your Email
                       </label>
@@ -266,21 +299,23 @@ export default function Contact() {
                         value={formData.email}
                         onChange={handleChange}
                         placeholder="john@example.com"
-                        className={`h-11 px-4 rounded-xl border bg-background/50 text-foreground text-sm transition-all focus:bg-background focus:outline-hidden ${
+                        aria-invalid={!!errors.email}
+                        aria-describedby={errors.email ? 'email-error' : undefined}
+                        className={`h-11 sm:h-12 px-4 rounded-xl border bg-background/50 text-foreground text-sm transition-all focus:bg-background focus:outline-hidden ${
                           errors.email
                             ? 'border-red-500 focus:border-red-500 focus:ring-1 focus:ring-red-500'
                             : 'border-border focus:border-primary focus:ring-1 focus:ring-primary'
                         }`}
                       />
                       {errors.email && (
-                        <p className="text-xs text-red-500 flex items-center gap-1">
-                          <AlertCircle className="w-3.5 h-3.5" /> {errors.email}
+                        <p id="email-error" className="text-xs text-red-500 flex items-center gap-1">
+                          <AlertCircle className="w-3.5 h-3.5 shrink-0" /> {errors.email}
                         </p>
                       )}
                     </div>
 
                     {/* Subject */}
-                    <div className="flex flex-col gap-2">
+                    <div className="flex flex-col gap-1.5">
                       <label htmlFor="subject" className="text-sm font-semibold text-foreground">
                         Subject
                       </label>
@@ -291,21 +326,23 @@ export default function Contact() {
                         value={formData.subject}
                         onChange={handleChange}
                         placeholder="Let's collaborate!"
-                        className={`h-11 px-4 rounded-xl border bg-background/50 text-foreground text-sm transition-all focus:bg-background focus:outline-hidden ${
+                        aria-invalid={!!errors.subject}
+                        aria-describedby={errors.subject ? 'subject-error' : undefined}
+                        className={`h-11 sm:h-12 px-4 rounded-xl border bg-background/50 text-foreground text-sm transition-all focus:bg-background focus:outline-hidden ${
                           errors.subject
                             ? 'border-red-500 focus:border-red-500 focus:ring-1 focus:ring-red-500'
                             : 'border-border focus:border-primary focus:ring-1 focus:ring-primary'
                         }`}
                       />
                       {errors.subject && (
-                        <p className="text-xs text-red-500 flex items-center gap-1">
-                          <AlertCircle className="w-3.5 h-3.5" /> {errors.subject}
+                        <p id="subject-error" className="text-xs text-red-500 flex items-center gap-1">
+                          <AlertCircle className="w-3.5 h-3.5 shrink-0" /> {errors.subject}
                         </p>
                       )}
                     </div>
 
                     {/* Message */}
-                    <div className="flex flex-col gap-2">
+                    <div className="flex flex-col gap-1.5">
                       <label htmlFor="message" className="text-sm font-semibold text-foreground">
                         Your Message
                       </label>
@@ -316,15 +353,17 @@ export default function Contact() {
                         onChange={handleChange}
                         placeholder="Tell me about your project..."
                         rows={5}
-                        className={`p-4 rounded-xl border bg-background/50 text-foreground text-sm transition-all focus:bg-background focus:outline-hidden resize-none ${
+                        aria-invalid={!!errors.message}
+                        aria-describedby={errors.message ? 'message-error' : undefined}
+                        className={`p-4 rounded-xl border bg-background/50 text-foreground text-sm transition-all focus:bg-background focus:outline-hidden resize-none min-h-[120px] ${
                           errors.message
                             ? 'border-red-500 focus:border-red-500 focus:ring-1 focus:ring-red-500'
                             : 'border-border focus:border-primary focus:ring-1 focus:ring-primary'
                         }`}
                       />
                       {errors.message && (
-                        <p className="text-xs text-red-500 flex items-center gap-1">
-                          <AlertCircle className="w-3.5 h-3.5" /> {errors.message}
+                        <p id="message-error" className="text-xs text-red-500 flex items-center gap-1">
+                          <AlertCircle className="w-3.5 h-3.5 shrink-0" /> {errors.message}
                         </p>
                       )}
                     </div>
@@ -335,16 +374,19 @@ export default function Contact() {
                       size="md"
                       type="submit"
                       disabled={status === 'loading'}
-                      className="w-full h-12"
+                      className="w-full min-h-[48px] h-12 text-sm sm:text-base font-semibold"
                     >
                       {status === 'loading' ? (
                         <>
-                          <Loader2 className="w-4 h-4 mr-2 animate-spin" /> Sending Message...
+                          <Loader2 className="w-4 h-4 mr-2 animate-spin" /> Preparing Draft...
                         </>
                       ) : (
-                        'Send Message'
+                        'Prepare Email Draft'
                       )}
                     </Button>
+                    <p className="text-center text-xs text-muted-foreground">
+                      Opens directly in your default email application to reach <span className="text-foreground font-medium">yimereyuel3@gmail.com</span>
+                    </p>
                   </motion.form>
                 )}
               </AnimatePresence>

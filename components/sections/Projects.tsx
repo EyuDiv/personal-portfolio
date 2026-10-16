@@ -11,7 +11,6 @@ import {
   FileText,
   Server,
   ShoppingBag,
-  LucideIcon,
 } from 'lucide-react';
 import { GithubIcon } from '../ui/BrandIcons';
 import { Project } from '@/types';
@@ -23,8 +22,8 @@ export default function Projects() {
       description:
         'A fully responsive and animated personal developer portfolio built with Next.js App Router, Tailwind CSS, and Framer Motion.',
       tags: ['Next.js 15', 'Tailwind CSS', 'Framer Motion', 'TypeScript'],
-      githubUrl: 'https://github.com',
-      liveUrl: 'https://github.com',
+      githubUrl: 'https://github.com/EyuDiv/personal-portfolio',
+      liveUrl: 'https://personal-portfolio-sage-alpha-43.vercel.app',
       imageGradient: 'from-blue-500 to-indigo-600',
     },
     {
@@ -32,8 +31,8 @@ export default function Projects() {
       description:
         'A sleek, lightweight task manager with custom themes, persistent local storage, subtasks, and transition animations.',
       tags: ['Next.js', 'TypeScript', 'Tailwind CSS'],
-      githubUrl: 'https://github.com',
-      liveUrl: 'https://github.com',
+      githubUrl: 'https://github.com/EyuDiv',
+      liveUrl: 'https://personal-portfolio-sage-alpha-43.vercel.app',
       imageGradient: 'from-purple-500 to-pink-600',
     },
     {
@@ -41,8 +40,8 @@ export default function Projects() {
       description:
         'A real-time weather dashboard fetching live updates from OpenWeather API with geolocation, hourly forecasts, and responsive layouts.',
       tags: ['React', 'Rest API', 'CSS Grid', 'Tailwind CSS'],
-      githubUrl: 'https://github.com',
-      liveUrl: 'https://github.com',
+      githubUrl: 'https://github.com/EyuDiv',
+      liveUrl: 'https://personal-portfolio-sage-alpha-43.vercel.app',
       imageGradient: 'from-sky-400 to-blue-600',
     },
     {
@@ -50,8 +49,8 @@ export default function Projects() {
       description:
         'A markdown-based static blog engine with category filtering, search capability, reading time estimation, and Vercel hosting.',
       tags: ['Next.js', 'MDX', 'Tailwind', 'Vercel'],
-      githubUrl: 'https://github.com',
-      liveUrl: 'https://github.com',
+      githubUrl: 'https://github.com/EyuDiv',
+      liveUrl: 'https://personal-portfolio-sage-alpha-43.vercel.app',
       imageGradient: 'from-violet-600 to-purple-800',
     },
     {
@@ -59,8 +58,8 @@ export default function Projects() {
       description:
         'A secure, scalable RESTful API back-end for an e-commerce platform using JWT authentication, database migrations, and unit tests.',
       tags: ['Laravel', 'PHP', 'MySQL', 'JWT'],
-      githubUrl: 'https://github.com',
-      liveUrl: 'https://github.com',
+      githubUrl: 'https://github.com/EyuDiv',
+      liveUrl: 'https://personal-portfolio-sage-alpha-43.vercel.app',
       imageGradient: 'from-red-500 to-orange-600',
     },
     {
@@ -68,8 +67,8 @@ export default function Projects() {
       description:
         'A performant e-commerce frontend mock-up featuring cart state management, checkout validation, product sorting, and skeleton loaders.',
       tags: ['Next.js', 'Context API', 'Tailwind CSS', 'Framer Motion'],
-      githubUrl: 'https://github.com',
-      liveUrl: 'https://github.com',
+      githubUrl: 'https://github.com/EyuDiv',
+      liveUrl: 'https://personal-portfolio-sage-alpha-43.vercel.app',
       imageGradient: 'from-cyan-500 to-blue-600',
     },
   ];
@@ -95,10 +94,10 @@ export default function Projects() {
   };
 
   return (
-    <section id="projects" className="py-20 bg-muted/30">
+    <section id="projects" className="py-14 sm:py-20 bg-muted/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Title */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -118,7 +117,7 @@ export default function Projects() {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {projectsList.map((project, index) => (
             <Card
               key={index}
@@ -126,9 +125,9 @@ export default function Projects() {
               delay={index * 0.1}
               className="flex flex-col h-full border border-border bg-card/60 backdrop-blur-xs p-0 overflow-hidden"
             >
-              {/* Animated/Gradient Card Header Placeholder */}
+              {/* Animated/Gradient Card Header */}
               <div
-                className={`w-full h-48 bg-gradient-to-r ${project.imageGradient} flex items-center justify-center relative overflow-hidden`}
+                className={`w-full h-44 sm:h-48 bg-gradient-to-r ${project.imageGradient} flex items-center justify-center relative overflow-hidden`}
               >
                 {/* Decorative background grid pattern */}
                 <div className="absolute inset-0 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:16px_16px] opacity-10 pointer-events-none" />
@@ -140,7 +139,7 @@ export default function Projects() {
               </div>
 
               {/* Card Body */}
-              <div className="p-6 flex flex-col flex-1 justify-between gap-5">
+              <div className="p-5 sm:p-6 flex flex-col flex-1 justify-between gap-5">
                 <div className="space-y-3">
                   {/* Title */}
                   <h3 className="text-xl font-bold text-foreground">
@@ -166,23 +165,27 @@ export default function Projects() {
                     ))}
                   </div>
 
-                  {/* Actions */}
+                  {/* Actions with min 44px height for accessibility */}
                   <div className="flex items-center gap-3 border-t border-border pt-4">
                     <a
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 inline-flex items-center justify-center h-10 px-4 text-sm font-semibold rounded-xl border border-border bg-card text-foreground hover:bg-muted hover:border-muted-foreground/30 transition-all gap-1.5 cursor-pointer"
+                      aria-label={`View source code for ${project.title}`}
+                      className="flex-1 inline-flex items-center justify-center min-h-[44px] px-4 text-sm font-semibold rounded-xl border border-border bg-card text-foreground hover:bg-muted hover:border-muted-foreground/30 transition-all gap-1.5 cursor-pointer"
                     >
-                      <GithubIcon className="w-4 h-4" /> Code
+                      <GithubIcon className="w-4 h-4 shrink-0" />
+                      <span>Code</span>
                     </a>
                     <a
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 inline-flex items-center justify-center h-10 px-4 text-sm font-semibold rounded-xl bg-primary text-white hover:bg-blue-600 shadow-sm hover:shadow-blue-500/10 transition-all gap-1.5 cursor-pointer"
+                      aria-label={`View live demo of ${project.title}`}
+                      className="flex-1 inline-flex items-center justify-center min-h-[44px] px-4 text-sm font-semibold rounded-xl bg-primary text-white hover:bg-blue-600 shadow-sm hover:shadow-blue-500/10 transition-all gap-1.5 cursor-pointer"
                     >
-                      <ExternalLink className="w-4 h-4" /> Demo
+                      <ExternalLink className="w-4 h-4 shrink-0" />
+                      <span>Demo</span>
                     </a>
                   </div>
                 </div>

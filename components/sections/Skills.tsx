@@ -94,16 +94,16 @@ export default function Skills() {
   };
 
   return (
-    <section id="skills" className="py-20">
+    <section id="skills" className="py-14 sm:py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Title */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-3xl sm:text-4xl font-extrabold tracking-tight"
+            className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight"
           >
             My <span className="bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">Skills</span>
           </motion.h2>
@@ -117,27 +117,27 @@ export default function Skills() {
         </div>
 
         {/* Skill Categories Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {skillCategories.map((categoryObj, catIdx) => (
             <Card
               key={catIdx}
               hoverEffect={false}
-              className="border border-border bg-card/40 backdrop-blur-xs flex flex-col gap-6"
+              className="border border-border bg-card/40 backdrop-blur-xs flex flex-col gap-6 p-5 sm:p-6"
             >
-              <h3 className="text-xl font-bold text-foreground border-b border-border pb-3">
+              <h3 className="text-lg sm:text-xl font-bold text-foreground border-b border-border pb-3">
                 {categoryObj.category}
               </h3>
               
-              <div className="flex flex-col gap-5">
+              <div className="flex flex-col gap-4 sm:gap-5">
                 {categoryObj.skills.map((skill, skillIdx) => (
                   <div key={skillIdx} className="flex flex-col gap-2">
                     {/* Skill Title & Percentage */}
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
-                        <div className="p-1.5 rounded-lg bg-muted border border-border">
+                        <div className="p-1.5 rounded-lg bg-muted border border-border shrink-0">
                           {getSkillIcon(skill.iconName)}
                         </div>
-                        <span className="text-sm font-semibold text-foreground">
+                        <span className="text-xs sm:text-sm font-semibold text-foreground">
                           {skill.name}
                         </span>
                       </div>
@@ -147,7 +147,14 @@ export default function Skills() {
                     </div>
 
                     {/* Progress Bar Container */}
-                    <div className="h-2 w-full bg-muted rounded-full overflow-hidden">
+                    <div
+                      className="h-2 w-full bg-muted rounded-full overflow-hidden"
+                      role="progressbar"
+                      aria-valuenow={skill.percentage}
+                      aria-valuemin={0}
+                      aria-valuemax={100}
+                      aria-label={`${skill.name} proficiency: ${skill.percentage}%`}
+                    >
                       <motion.div
                         initial={{ width: 0 }}
                         whileInView={{ width: `${skill.percentage}%` }}
